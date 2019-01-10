@@ -31,5 +31,34 @@ For Webpack entry file there will be three scripts that the project will consist
 * audio.js
     * handle the audio logic 
 
+## Wireframe
+![](./breakout-img.png)
+
+
 ## Implementation Timeline
+
+* Day 1
+    * Review the procedures 
+    * Get canvas rendering 
+    * Set up the the paddle and bricks
+* Day 2
+    * Create the ball and have it move in motion
+    * Have the ball bounce from: walls, bricks, and paddle
+    * Game ends if ball touches the bottom
+* Day 3
+    * Dedicate this day to learn Web Audio Api
+    * Get sounds to play when collisions
+    * Get collisions graphics working
+* Day 4
+    * Create a start and restart function
+    * Have a functional screen on the Canvas frontend that correctly handles running of the simulation.
+* Day 5
+    * Create bricks with different values
+    * Have a styled Canvas
+* Day 6 
+    * Test for bugs
+    *  Deploy the project
+
+
+
 
