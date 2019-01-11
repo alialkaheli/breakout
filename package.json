@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "main": "src/index.js",
+  "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack --watch --mode=development"
   },
   "keywords": [],
   "author": "",
@@ -15,16 +16,10 @@
     "webpack-cli": "^3.2.1"
   },
   "dependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.5",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
     "css-loader": "^2.1.0",
     "keycode": "^2.2.0",
     "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.28.1"
