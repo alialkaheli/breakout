@@ -1,7 +1,7 @@
 
 let canvas = document.getElementById("breakout");
 let ctx = canvas.getContext('2d');
-let keyCode = require("keycode");
+// let keyCode = require("keycode");
 
 /////set paddle keys 
 let right = false;
