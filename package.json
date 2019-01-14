@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "css-loader": "^2.1.0",
+    "howler": "^2.1.1",
     "keycode": "^2.2.0",
     "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
