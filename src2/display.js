@@ -1,17 +1,23 @@
 import Ball from "./ball.js";
 import Paddle from "./paddle.js";
+import Bricks from "./bricks.js";
 
 class Display{
     constructor(width, height, ctx){
         // console.log("display")
         this.ball = new Ball(width,height, ctx);
         this.paddle = new Paddle(width,height, ctx);
+        this.bricks = new Bricks(ctx);
+
         this.width = width;
         this.height = height;
         this.ctx = ctx;
 
         this.dx = 2;
         this.dy = -2;
+
+        this.x = width / 2;
+        this.y = height - 30;
 
         this.right = false;
         this.left = false;
@@ -30,16 +36,12 @@ class Display{
         const animate = () => {
             this.frame = requestAnimationFrame(animate);
             this.render();
-            // console.log("hello there");
 
         }
         animate();
     }
 
     keyDownHandler(e) {
-        // console.log("down handler")
-        // console.log(e.keyCode)
-        console.log(this)
         if (e.keyCode == 39) {
             this.right = true;
         }
@@ -76,6 +78,7 @@ class Display{
             //touch the ground game over
             // console.log("bottom");
             if (this.ball.x > this.paddle.paddlex && this.ball.x < this.paddle.paddlex + this.paddle.paddleW) {
+                console.log(this.dy);
                 this.dy = -this.dy;
             } else {
                 
@@ -89,6 +92,7 @@ class Display{
         }
     }
 
+    
     render(){
         // console.log("helo")
         // console.log(this.width, this.height)
@@ -96,6 +100,12 @@ class Display{
         // console.log(this.ctx);
         this.ball.drawBall();
         this.paddle.drawPaddle();
+        this.bricks.drawBricks();
+        this.dy = this.bricks.breakBricks(this.ball.x, this.ball.y, this.dy);
+        // console.log(this.ball);
+        // this.dy = this.bricks.switchDir(this.dy);
+        
+        
 
        this.ballMotion();
         
@@ -105,6 +115,8 @@ class Display{
 
         this.ball.x += this.dx;
         this.ball.y += this.dy;
+
+        this.bricks.win()
     }
 }
 
