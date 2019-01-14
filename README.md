@@ -46,7 +46,7 @@ For Webpack entry file there will be three scripts that the project will consist
     * Have the ball bounce from: walls, bricks, and paddle
     * Game ends if ball touches the bottom
 * Day 3
-    * Dedicate this day to learn Web Audio Api
+    * Dedicate this day to learn howlerjs
     * Get sounds to play when collisions
     * Get collisions graphics working
 * Day 4
