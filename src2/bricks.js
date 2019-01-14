@@ -1,7 +1,7 @@
 // import Display from './display.js';
 
 class Bricks {
-  constructor(ctx) {
+  constructor(ctx, sound) {
     this.brickRow = 3;
     this.brickCol = 5;
     this.brickW = 80;
@@ -10,6 +10,7 @@ class Bricks {
     this.brickOffsetTop = 30;
     this.brickOffsetLeft = 30;
     this.ctx = ctx;
+    this.sound = sound;
     ///array for bricks
     this.bricks = [];
 
@@ -34,7 +35,7 @@ class Bricks {
             y < breakB.y + this.brickH
           ) {
             // console.log("nested if loop")
-            
+            this.sound.play();
             breakB.status = 0; // if hit turns status to 0 to remove it
             return -dy
             // dy = -dy;

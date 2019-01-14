@@ -3,11 +3,14 @@ import Paddle from "./paddle.js";
 import Bricks from "./bricks.js";
 
 class Display{
-    constructor(width, height, ctx){
+    constructor(width, height, ctx, bricksound, bounce, sound){
         // console.log("display")
         this.ball = new Ball(width,height, ctx);
         this.paddle = new Paddle(width,height, ctx);
-        this.bricks = new Bricks(ctx);
+        this.bricks = new Bricks(ctx, bricksound);
+        
+        this.sound = sound;
+        this.bounce = bounce;
 
         this.width = width;
         this.height = height;
@@ -73,21 +76,24 @@ class Display{
         // console.log("ball motion")
         if (this.ball.y + this.dy < this.ball.ball_rad) {
             // console.log("first if ")
+            this.bounce.play();
             this.dy = -this.dy;
         } else if (this.ball.y + this.dy + 5 > this.height - this.ball.ball_rad + 1) {
             //touch the ground game over
             // console.log("bottom");
             if (this.ball.x > this.paddle.paddlex && this.ball.x < this.paddle.paddlex + this.paddle.paddleW) {
-                console.log(this.dy);
+                // console.log(this.dy);
+                this.bounce.play();
                 this.dy = -this.dy;
             } else {
-                
+                this.sound.stop();
                 alert("Game Over");
                 document.location.reload();
             }
         }
         if (this.ball.x + this.dx > this.width - this.ball.ball_rad || this.ball.x + this.dx < this.ball.ball_rad) {
             // console.log("second if")
+            this.bounce.play();
             this.dx = -this.dx;
         }
     }
