@@ -2,13 +2,13 @@
 
 class Bricks {
   constructor(ctx, sound) {
-    this.brickRow = 3;
-    this.brickCol = 5;
-    this.brickW = 80;
-    this.brickH = 20;
-    this.brickPadding = 10;
-    this.brickOffsetTop = 30;
-    this.brickOffsetLeft = 30;
+    this.brickRow = 5;
+    this.brickCol = 7;
+    this.brickW = 85;
+    this.brickH = 30;
+    this.brickPadding = 0;
+    this.brickOffsetTop = 40;
+    this.brickOffsetLeft = 25;
     this.ctx = ctx;
     this.sound = sound;
     ///array for bricks
@@ -21,7 +21,7 @@ class Bricks {
       }
     }
   }
-  breakBricks(x,y,dy) {
+  breakBricks(x,y,dy,score) {
     // console.log("breakbricks")
     for (let i = 0; i < this.brickCol; i++) {
       for (let j = 0; j < this.brickRow; j++) {
@@ -37,13 +37,14 @@ class Bricks {
             // console.log("nested if loop")
             this.sound.play();
             breakB.status -= 1; // if hit turns status to 0 to remove it
-            return -dy
+
+            return [-dy, score+=100]
             // dy = -dy;
           }
         }
       }
     }
-    return dy
+    return [dy, score]
   }
 
   drawBricks() {
@@ -62,7 +63,7 @@ class Bricks {
           this.bricks[i][j].y = brickY;
           this.ctx.beginPath();
           this.ctx.rect(brickX, brickY, this.brickW, this.brickH);
-          console.log(this.bricks[i][j].status);
+          // console.log(this.bricks[i][j].status);
           if(this.bricks[i][j].status == 1){
             this.ctx.fillStyle = "blue";
             
@@ -75,6 +76,9 @@ class Bricks {
           }
           // this.ctx.fillStyle = "blue";
           this.ctx.fill();
+          // this.ctx.stroke();
+          this.ctx.lineWidth = 5;
+          this.ctx.strokeRect(brickX, brickY, this.brickW, this.brickH);
           this.ctx.closePath();
         }
       }
@@ -90,7 +94,7 @@ class Bricks {
         }
       }
     }
-    if( count == 15){
+    if( count == (this.brickCol * this.brickRow)){
       alert("You Win");
       document.location.reload()
     }
