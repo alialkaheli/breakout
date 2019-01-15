@@ -22,11 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // sound.play();
-    let game = new Display(canvas.width, canvas.height, ctx, brick,bounce, sound);
-    document.querySelector("button").addEventListener("click", ()=> {
+    let game = new Display(canvas, ctx, brick,bounce, sound, document);
+    document.getElementById("start").addEventListener("click", ()=> {
         game.start();
         sound.play();
         
+    })
+    document.getElementById("restart").addEventListener("click", () => {
+        document.location.reload();
+
     })
     // game.start();
 })
