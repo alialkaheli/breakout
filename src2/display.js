@@ -3,24 +3,29 @@ import Paddle from "./paddle.js";
 import Bricks from "./bricks.js";
 
 class Display{
-    constructor(width, height, ctx, bricksound, bounce, sound){
+    constructor(canvas, ctx, bricksound, bounce, sound){
         // console.log("display")
-        this.ball = new Ball(width,height, ctx);
-        this.paddle = new Paddle(width,height, ctx);
+        this.ball = new Ball(canvas.width, canvas.height, ctx);
+        this.paddle = new Paddle(canvas.width, canvas.height, ctx);
         this.bricks = new Bricks(ctx, bricksound);
+
+        this.score = 0;
+
+        
+        this.canvas = canvas
         
         this.sound = sound;
         this.bounce = bounce;
 
-        this.width = width;
-        this.height = height;
+        this.width = canvas.width;
+        this.height = canvas.height;
         this.ctx = ctx;
 
         this.dx = 2;
         this.dy = -2;
 
-        this.x = width / 2;
-        this.y = height - 30;
+        this.x = canvas.width / 2;
+        this.y = canvas.height - 30;
 
         this.right = false;
         this.left = false;
@@ -87,8 +92,9 @@ class Display{
                 this.dy = -this.dy;
             } else {
                 this.sound.stop();
-                alert("Game Over");
+                alert("Game Over, your score is " + this.score);
                 document.location.reload();
+                
             }
         }
         if (this.ball.x + this.dx > this.width - this.ball.ball_rad || this.ball.x + this.dx < this.ball.ball_rad) {
@@ -96,6 +102,12 @@ class Display{
             this.bounce.play();
             this.dx = -this.dx;
         }
+    }
+
+    drawScore(){
+        this.ctx.font = "25px Hemi Head";
+        this.ctx.fillStyle = "red";
+        this.ctx.fillText("Score: "+ this.score, 8, 20);
     }
 
     
@@ -107,10 +119,12 @@ class Display{
         this.ball.drawBall();
         this.paddle.drawPaddle();
         this.bricks.drawBricks();
-        this.dy = this.bricks.breakBricks(this.ball.x, this.ball.y, this.dy);
+        this.drawScore();
+        let arr = this.bricks.breakBricks(this.ball.x, this.ball.y, this.dy, this.score);
+        this.dy = arr[0]
+        this.score = arr[1]
         // console.log(this.ball);
         // this.dy = this.bricks.switchDir(this.dy);
-        
         
 
        this.ballMotion();
