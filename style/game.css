@@ -1,22 +1,65 @@
 * {
+    
     padding: 0;
     margin: 0;
+    /* background-color: gray; */
+    
+}
+body{
+    background-image: url("https://media.wired.com/photos/5b7f64cbbe2f8d3a624b77b2/4:3/w_2000,c_limit/SPoW_82318_01.jpg");
+    background-size: 100% 100%;
 }
 
 #breakout {
-    background-color: #eee;
+    background-color: white;
     display: block;
     margin: 0 auto;
+
+   
 }
 
 #game {
-    background-color: #eee;
+    background-color: white;
     display: block;
     margin: 0 auto;
+    background: url('https://static1.squarespace.com/static/51b3dc8ee4b051b96ceb10de/t/57110b8127d4bd65ccd86822/1460734859220/?format=2500w');
+    background-size: 100% 100%;
+    border: 1px solid red;
+
+     /* margin-left: 100px; */
 }
 
 button{
     height: 50px;
     width: 100px;
     margin-left: 20px;
+    margin-top: 20px;
+    background-color: red;
+    font-size: 18px;
+}
+
+.game-buttons{
+    display: flex;
+    width:80%;
+    
+}
+.game-page{
+    display: block;
+    text-align: center;
+    height: 100%;
+    width:100%;
+    border:1px solid black;
+   
+    
+    
+}
+
+p{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: blue;
+}
+h1{
+    color: red;
 }
