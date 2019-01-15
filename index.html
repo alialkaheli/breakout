@@ -8,10 +8,20 @@
   </head>
   <body>
     <!-- <canvas id="breakout" width="500" height="350"></canvas> -->
-    <center><h1>Atari Breakout</h1></center>
-    <canvas id="game" height="300" width="500"></canvas>
+    <div class="game-page">
+      <h1>Atari Breakout</h1>
+      <div class="game-buttons">
+        <div class="instruction">
+          <button id="start">Start</button>
+          <button id="restart">Restart</button>
+          <p>Yellow boxes = 3 hits,</p>
+            <p>Green boxes = 2 hits,</p>
+            <p>Blue boxes = 1 hit,</p>
+          
+        </div>
+        <canvas id="game" height="500" width="650"></canvas>
+      </div>
+    </div>
     <script src="./bundle.js"></script>
-    <button>Start</button>
-    
   </body>
 </html>
