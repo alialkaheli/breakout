@@ -28,12 +28,20 @@ document.addEventListener('DOMContentLoaded', () => {
         sound.play();
         
     })
+    document.addEventListener("keydown",(e) => {
+        if (e.keyCode == 32) {
+            game.start();
+            sound.play();
+        }
+    });
+
     document.getElementById("restart").addEventListener("click", () => {
         document.location.reload();
 
     })
     // game.start();
 })
+
 
 /////////// python -m SimpleHTTPServer  <-----run server for audio
 ///localhost:8000

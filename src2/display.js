@@ -50,20 +50,20 @@ class Display{
     }
 
     keyDownHandler(e) {
-        if (e.keyCode == 39) {
+        if (e.keyCode == 39 || e.keyCode == 68) {
             this.right = true;
         }
-        if (e.keyCode == 37) {
+        if (e.keyCode == 37 || e.keyCode == 65){
             this.left = true;
         }
     }
 
     keyUpHandler(e) {
-        if (e.keyCode == 39) {
-            this.right = false;
+        if (e.keyCode == 39 || e.keyCode == 68) {
+          this.right = false;
         }
-        if (e.keyCode == 37) {
-            this.left = false;
+        if (e.keyCode == 37 || e.keyCode == 65) {
+          this.left = false;
         }
     }
 
