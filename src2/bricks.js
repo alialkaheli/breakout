@@ -6,7 +6,7 @@ class Bricks {
     this.brickCol = 5;
     this.brickW = 80;
     this.brickH = 20;
-    this.brickPadding = 15;
+    this.brickPadding = 10;
     this.brickOffsetTop = 30;
     this.brickOffsetLeft = 30;
     this.ctx = ctx;
@@ -17,7 +17,7 @@ class Bricks {
     for (let i = 0; i < this.brickCol; i++) {
       this.bricks[i] = [];
       for (let j = 0; j < this.brickRow; j++) {
-        this.bricks[i][j] = { x: 0, y: 0, status: 1 }; // add status to remove bricks
+        this.bricks[i][j] = { x: 0, y: 0, status: (Math.floor(Math.random() * 3) + 1)}; // add status to remove bricks
       }
     }
   }
@@ -26,7 +26,7 @@ class Bricks {
     for (let i = 0; i < this.brickCol; i++) {
       for (let j = 0; j < this.brickRow; j++) {
         let breakB = this.bricks[i][j];
-        if (breakB.status == 1) {
+        if (breakB.status >= 1) {
           // console.log(breakB.x, breakB.y)
           if (
             x > breakB.x &&
@@ -36,7 +36,7 @@ class Bricks {
           ) {
             // console.log("nested if loop")
             this.sound.play();
-            breakB.status = 0; // if hit turns status to 0 to remove it
+            breakB.status -= 1; // if hit turns status to 0 to remove it
             return -dy
             // dy = -dy;
           }
@@ -50,7 +50,7 @@ class Bricks {
     for (let i = 0; i < this.brickCol; i++) {
       for (let j = 0; j < this.brickRow; j++) {
         // console.log(bricks[i][j].status);
-        if (this.bricks[i][j].status == 1) {
+        if (this.bricks[i][j].status >= 1) {
           //the padding of the bricks
           let brickX =
             i * (this.brickW + this.brickPadding) + this.brickOffsetLeft;
@@ -62,7 +62,18 @@ class Bricks {
           this.bricks[i][j].y = brickY;
           this.ctx.beginPath();
           this.ctx.rect(brickX, brickY, this.brickW, this.brickH);
-          this.ctx.fillStyle = "black";
+          console.log(this.bricks[i][j].status);
+          if(this.bricks[i][j].status == 1){
+            this.ctx.fillStyle = "blue";
+            
+          }
+          if(this.bricks[i][j].status == 2){
+            this.ctx.fillStyle = "green";
+          }
+          if (this.bricks[i][j].status == 3) {
+            this.ctx.fillStyle = "yellow";
+          }
+          // this.ctx.fillStyle = "blue";
           this.ctx.fill();
           this.ctx.closePath();
         }
@@ -74,6 +85,7 @@ class Bricks {
     for (let i = 0; i < this.brickCol; i++) {
       for (let j = 0; j < this.brickRow; j++) {
         if(this.bricks[i][j].status == 0){
+
           count+=1
         }
       }
