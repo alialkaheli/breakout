@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Breakout Game</title>
+    <title>Breakout</title>
     <link rel="stylesheet" href="./style/game.css">
+    <link rel='icon' href='breakout-icon.png' type='image/x-icon'/>
     <!-- <script src="https://unpkg.com/lodash@4.16.6"></script> -->
     
   </head>
   <body>
     <!-- <canvas id="breakout" width="500" height="350"></canvas> -->
     <div class="game-page">
-      <h1>Atari Breakout</h1>
+      
       <div class="game-buttons">
         <div class="instruction">
-          <button id="start">Start</button>
-          <button id="restart">Restart</button>
+          <div class="buttons">
+            <button id="start">Start</button>
+            <button id="restart">Restart</button>
+          </div>
           <p>Click 'Start' or press spacebar to play</p>
           <p>Move with either left and right arrow or 'A' and 'D'</p>
           <p>Yellow boxes = 3 hits,</p>
             <p>Green boxes = 2 hits,</p>
-            <p>Blue boxes = 1 hit,</p>
+            <p>Blue boxes = 1 hit</p>
           
         </div>
-        <canvas id="game" height="500" width="650"></canvas>
       </div>
+        <div class="game-side">
+          <h1>Atari Breakout</h1>
+          <canvas id="game" height="500" width="650"></canvas>
+        </div>
+      
     </div>
     <script src="./bundle.js"></script>
   </body>
