@@ -1,23 +1,77 @@
-* {
-    
-    padding: 0;
-    margin: 0;
-    /* background-color: gray; */
-    
-}
+
 body{
     background-image: url("https://media.wired.com/photos/5b7f64cbbe2f8d3a624b77b2/4:3/w_2000,c_limit/SPoW_82318_01.jpg");
     background-size: 100% 100%;
+    
 }
 
-#breakout {
-    background-color: white;
-    display: block;
-    margin: 0 auto;
-
-   
+.game-page{
+    display: flex;
+    /* text-align: center; */
+    /* height: 100%; */
+    width:100%;
+    /* margin-left: 100px; */
+    /* border:1px solid black;  */
+    /* justify-content: center;  */
+    
 }
 
+.game-buttons{
+    display: flex;
+    width:40%;
+    /* border:1px solid red; */
+    justify-content: center;
+    /* align-items: center; */
+    
+}
+
+.instruction{
+    /* display: flex;
+    flex-direction: column; */
+    /* border:1px solid black; */
+    background-color: #e0c762;
+    height: 60%;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 100px;
+    margin-right:50px;
+    margin-left: 80px;
+}
+.buttons{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+button{
+    height: 50px;
+    width: 100px;
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color: red;
+    font-size: 18px;
+    border-radius: 5px;
+}
+p{
+    /* padding: 5px; */
+    margin: 0;
+    padding: 0;
+    padding-left: 40px;
+    padding-top:15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: blue;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+
+.game-side{
+    margin-left: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
 #game {
     background-color: white;
     display: block;
@@ -28,38 +82,33 @@ body{
 
      /* margin-left: 100px; */
 }
-
-button{
-    height: 50px;
-    width: 100px;
-    margin-left: 20px;
-    margin-top: 20px;
-    background-color: red;
-    font-size: 18px;
-}
-
-.game-buttons{
-    display: flex;
-    width:80%;
-    
-}
-.game-page{
-    display: block;
-    text-align: center;
-    height: 100%;
-    width:100%;
-    border:1px solid black;
-   
-    
-    
-}
-
-p{
-    padding: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    color: blue;
-}
 h1{
     color: red;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 40px;
+    /* padding:20px; */
 }
+
+
+
+
+
+#breakout {
+    background-color: white;
+    display: block;
+    margin: 0 auto;
+
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
