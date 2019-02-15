@@ -23,11 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // sound.play();
     let game = new Display(canvas, ctx, brick,bounce, sound, document);
-    document.getElementById("start").addEventListener("click", ()=> {
+    document
+      .getElementById("start-button")
+      .addEventListener("click", () => {
         game.start();
         sound.play();
-        
-    })
+      });
+    
     document.addEventListener("keydown",(e) => {
         if (e.keyCode == 32) {
             game.start();
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById("restart").addEventListener("click", () => {
         document.location.reload();
+        
 
     })
     // game.start();
