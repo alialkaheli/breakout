@@ -4,16 +4,27 @@
     <title>Breakout</title>
     <link rel="stylesheet" href="./style/game.css">
     <link rel='icon' href='breakout-icon.png' type='image/x-icon'/>
+    <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
     <!-- <script src="https://unpkg.com/lodash@4.16.6"></script> -->
     
   </head>
   <body>
     <!-- <canvas id="breakout" width="500" height="350"></canvas> -->
+    
+    
     <div class="game-page">
+      
         <div class="game-side">
-          <h1>Atari Breakout</h1>
+          <h1>BREAKOUT</h1>
+          <h1 id="counter"></h1>
+          <div id="instruction">
+          <p>Instructions on how to play</p>
           
-          <canvas id="game" height="500" width="650"></canvas>
+          <img src="images/arrows2.png"/>
+          </div>
+
+          <div id="pract" class="practice"></div>
+          <canvas class="game"></canvas>
         </div>
     </div>
     <div id='start-ref'>
