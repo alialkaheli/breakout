@@ -3589,9 +3589,9 @@ __webpack_require__.r(__webpack_exports__);
 
 // console.log("canvas");
 document.addEventListener('DOMContentLoaded', () => {
-    let canvas = document.getElementById("game");
-    // console.log("canvas2");
-    let ctx = canvas.getContext('2d');
+    // let canvas = document.getElementById("game");
+    // // console.log("canvas2");
+    // let ctx = canvas.getContext('2d');
     var sound = new howler__WEBPACK_IMPORTED_MODULE_1__["Howl"]({
         src: ['/src2/sound.mp3'],
         buffer: true,
@@ -3606,24 +3606,87 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
-    // sound.play();
-    let game = new _display_js__WEBPACK_IMPORTED_MODULE_0__["default"](canvas, ctx, brick,bounce, sound, document);
-    document.getElementById("start").addEventListener("click", ()=> {
-        game.start();
-        sound.play();
+    let fadeIntro = function (setForm, open, startBtn) {
+        setForm.classList.add('close');
+        open.classList.add('open');
+        startBtn.classList.add('close');
+        let h1 = document.getElementById("counter")
+        setTimeout(function () {
+            h1.innerHTML = 'GET READY';
+            setTimeout(function () {
+                h1.innerHTML = '3';
+                setTimeout(function () {
+                    h1.innerHTML = '2';
+                    setTimeout(function () {
+                        h1.innerHTML = '1';
+                    }, 1000);
+                }, 1000);
+            }, 1000);
+        }, 2000);
+        setTimeout(function () {
+            open.parentNode.removeChild(open);
+            setForm.parentNode.removeChild(setForm);
+            startBtn.parentNode.removeChild(startBtn);
+            getStarted();
+        }, 7000);
+    };
+
+    let getStarted = function(){
+
+        let gameCanvas = document.getElementsByClassName("game");
+        console.log(gameCanvas);
+        // debugger
+        gameCanvas[0].classList.add('resize');
+        gameCanvas[0].width = 650;
+        gameCanvas[0].height = 500 ;
+        let ctx = gameCanvas[0].getContext('2d');
+        let game = new _display_js__WEBPACK_IMPORTED_MODULE_0__["default"](
+          gameCanvas[0],
+          ctx,
+          brick,
+          bounce,
+          sound,
+          document
+        );
+        game.start()
+
         
-    })
-    document.addEventListener("keydown",(e) => {
-        if (e.keyCode == 32) {
-            game.start();
-            sound.play();
-        }
-    });
 
-    document.getElementById("restart").addEventListener("click", () => {
-        document.location.reload();
+        
+    }
 
-    })
+    let opening = document.getElementById('pract');
+    let instruction = document.getElementById('instruction');
+    let startButton = document.getElementById('start-button');
+
+    
+    startButton.addEventListener('click', () =>
+        fadeIntro(instruction, opening, startButton)
+    );
+
+    
+
+    // sound.play();
+    // let game = new Display(canvas, ctx, brick,bounce, sound, document);
+    // document
+    //   .getElementById("start-button")
+    //   .addEventListener("click", () => {
+    //     game.start();
+    //     sound.play();
+    //   });
+    
+    // document.addEventListener("keydown",(e) => {
+    //     if (e.keyCode == 32) {
+    //         game.start();
+    //         sound.play();
+    //     }
+    // });
+
+    // document.getElementById("restart").addEventListener("click", () => {
+    //     document.location.reload();
+        
+
+    // })
     // game.start();
 })
 
