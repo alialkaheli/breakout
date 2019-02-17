@@ -19,6 +19,8 @@ body{
 p{
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 20px;
+    margin:0;
+    padding-bottom:10px;
 }
 .game-side{
     margin-left: 100px;
@@ -66,7 +68,7 @@ h1{
   position: absolute;
   white-space: nowrap;
   left: 40%;
-  transform: translate(-10%, 460px);
+  transform: translate(-10%, 400px);
   color: #000;
   cursor: pointer;
   font-size: 50px;
@@ -99,7 +101,7 @@ h1{
 img{
     object-fit: contain;
     height:200px;
-    width: 200px;
+    width:200px;
 }
 
 
