@@ -2,6 +2,10 @@
 
 class Bricks {
   constructor(ctx, sound) {
+    this.image = new Image();
+    this.onReady = () => {}
+    this.image.onload = () => this.onReady();
+    this.image.src = "/images/bricksheet.png"
     this.brickRow = 5;
     this.brickCol = 7;
     this.brickW = 85;
@@ -62,20 +66,54 @@ class Bricks {
           this.bricks[i][j].x = brickX;
           this.bricks[i][j].y = brickY;
           this.ctx.beginPath();
-          this.ctx.rect(brickX, brickY, this.brickW, this.brickH);
           // console.log(this.bricks[i][j].status);
           if(this.bricks[i][j].status == 1){
-            this.ctx.fillStyle = "blue";
-            
+            // this.ctx.fillStyle = "#f00";
+            // this.ctx.fill();
+            this.ctx.globalAlpha = 0.5;
+            this.ctx.drawImage(
+              this.image,
+              8,
+              200,
+              this.brickW,
+              this.brickH,
+              brickX,
+              brickY,
+              this.brickW,
+              this.brickH
+            );
+            this.ctx.globalAlpha = 1;            
           }
-          if(this.bricks[i][j].status == 2){
-            this.ctx.fillStyle = "green";
+          if (this.bricks[i][j].status == 2) {
+            this.ctx.drawImage(
+              this.image,
+              8,
+              100,
+              this.brickW,
+              this.brickH,
+              brickX,
+              brickY,
+              this.brickW,
+              this.brickH
+            );
           }
           if (this.bricks[i][j].status == 3) {
-            this.ctx.fillStyle = "yellow";
+            this.ctx.fillStyle = "#0000";
+            this.ctx.drawImage(
+              this.image,
+              8,
+              20,
+              this.brickW,
+              this.brickH,
+              brickX,
+              brickY,
+              this.brickW,
+              this.brickH
+            );
           }
           // this.ctx.fillStyle = "blue";
-          this.ctx.fill();
+          this.ctx.rect(brickX, brickY, this.brickW, this.brickH);
+          // this.ctx.fill();
           // this.ctx.stroke();
           this.ctx.lineWidth = 5;
           this.ctx.strokeRect(brickX, brickY, this.brickW, this.brickH);
