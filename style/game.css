@@ -37,13 +37,13 @@ p{
     margin: 0 auto;
     background-color: black;
     background-size: 100% 100%;
-    border: 1px solid red;
-    box-shadow: 0px 0px 30px #ffe2e2;
     z-index: 1;
 }
 .resize{
     height: 500px;
     width: 650px;
+    border: 1px solid red;
+    box-shadow: 0px 0px 30px #ffe2e2;
 }
 
 .counter{
