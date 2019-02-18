@@ -95,8 +95,9 @@ class Display{
                 this.dy = -this.dy;
             } else {
                 this.sound.stop();
-                alert("Game Over, your score is " + this.score);
-                document.location.reload();
+                // alert("Game Over, your score is " + this.score);
+                // document.location.reload();
+                cancelAnimationFrame(this.frame)
                 
             }
         }
