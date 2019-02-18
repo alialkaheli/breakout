@@ -8,16 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // // console.log("canvas2");
     // let ctx = canvas.getContext('2d');
     var sound = new Howl({
-        src: ['/src2/sound.mp3'],
+        src: ['./src2/sound.mp3'],
         buffer: true,
         loop: true
     });
     var brick = new Howl({
-      src: ["/src2/breaking.mp3"],
+      src: ["./src2/breaking.mp3"],
       
     });
     var bounce = new Howl({
-        src: ["/src2/bounce.mp3"],
+        src: ["./src2/bounce.mp3"],
 
     });
 
