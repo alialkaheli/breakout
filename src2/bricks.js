@@ -5,7 +5,7 @@ class Bricks {
     this.image = new Image();
     this.onReady = () => {}
     this.image.onload = () => this.onReady();
-    this.image.src = "/images/bricksheet.png"
+    this.image.src = "./images/bricksheet.png"
     this.brickRow = 5;
     this.brickCol = 7;
     this.brickW = 85;
@@ -70,7 +70,7 @@ class Bricks {
           if(this.bricks[i][j].status == 1){
             // this.ctx.fillStyle = "#f00";
             // this.ctx.fill();
-            this.ctx.globalAlpha = 0.5;
+            this.ctx.globalAlpha = 0.7;
             this.ctx.drawImage(
               this.image,
               8,
@@ -85,6 +85,7 @@ class Bricks {
             this.ctx.globalAlpha = 1;            
           }
           if (this.bricks[i][j].status == 2) {
+            this.ctx.globalAlpha = 0.8;
             this.ctx.drawImage(
               this.image,
               8,
@@ -96,9 +97,11 @@ class Bricks {
               this.brickW,
               this.brickH
             );
+            this.ctx.globalAlpha = 1;
           }
           if (this.bricks[i][j].status == 3) {
             this.ctx.fillStyle = "#0000";
+            this.ctx.globalAlpha = 0.9;
             this.ctx.drawImage(
               this.image,
               8,
@@ -110,6 +113,7 @@ class Bricks {
               this.brickW,
               this.brickH
             );
+            this.ctx.globalAlpha = 1;
           }
           // this.ctx.fillStyle = "blue";
           this.ctx.rect(brickX, brickY, this.brickW, this.brickH);
