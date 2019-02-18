@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
           sound,
           document
         );
-        game.start()
+        game.gameReady.then(() => game.start());
 
         
 
