@@ -31,7 +31,8 @@ class Display{
         this.left = false;
         this.keyDownHandler = this.keyDownHandler.bind(this);
         this.keyUpHandler = this.keyUpHandler.bind(this);
-
+        
+        this.gameReady = new Promise(resolve => this.bricks.onReady = resolve)
 
         document.addEventListener("keydown",this.keyDownHandler);
         document.addEventListener("keyup", this.keyUpHandler);
@@ -41,6 +42,8 @@ class Display{
     }
 
     start(){
+        console.log("here");
+        
         const animate = () => {
             this.frame = requestAnimationFrame(animate);
             this.render();
